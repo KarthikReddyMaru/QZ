@@ -8,11 +8,12 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
 @MappedSuperclass
-@EntityListeners(AuditAwareImpl.class)
+@EntityListeners({AuditAwareImpl.class, AuditingEntityListener.class})
 public abstract class Auditable {
 
     @Column(updatable = false, nullable = false)
@@ -23,11 +24,11 @@ public abstract class Auditable {
     @CreatedBy
     private String createdBy;
 
-    @Column(insertable = false, nullable = false)
+    @Column(insertable = false)
     @LastModifiedDate
     private LocalDateTime lastModifiedAt;
 
-    @Column(insertable = false, nullable = false)
+    @Column(insertable = false)
     @LastModifiedBy
     private String lastModifiedBy;
 }
