@@ -9,7 +9,7 @@ import java.util.UUID;
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Table(indexes = @Index(name = "idx_username", columnList = "username"))
+@Table(name = "Users", indexes = @Index(name = "idx_username", columnList = "username"))
 public class User extends Auditable {
 
     @Id
