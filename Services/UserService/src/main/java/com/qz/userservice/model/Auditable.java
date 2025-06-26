@@ -18,7 +18,7 @@ public abstract class Auditable {
 
     @Column(updatable = false, nullable = false)
     @CreatedDate
-    private LocalDateTime createdAt;
+    private String createdAt;
 
     @Column(updatable = false, nullable = false)
     @CreatedBy
@@ -26,7 +26,7 @@ public abstract class Auditable {
 
     @Column(insertable = false)
     @LastModifiedDate
-    private LocalDateTime lastModifiedAt;
+    private String lastModifiedAt;
 
     @Column(insertable = false)
     @LastModifiedBy
